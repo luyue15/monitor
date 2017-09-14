@@ -27,19 +27,15 @@ def disk_stat():
     hd['used'] = hd['capacity'] - hd['available']
     return hd
 
-# a = memory_stat()
-# print a
-# mem_usage = a['MemUsed']/a['MemTotal']
-# mem_usage_string = '内存占用比为：%.2f%%' % (mem_usage * 100)
-# print('内存占用比为：%.2f%%' % (mem_usage * 100))
-#
-# b = disk_stat()
-# disk_usage = float(b['used']/b['capacity'])
-# print b['used']
-# print b['capacity']
-# print (disk_usage)
-# disk_usage_string = '硬盘占用比为：%.2f%%' % (disk_usage * 100)
-# print('硬盘占用比为：%.2f%%' % (disk_usage * 100))
+a = memory_stat()
+mem_usage = a['MemUsed']/a['MemTotal']
+mem_usage_string = '内存占用比为：%.2f%%' % (mem_usage * 100)
+print('内存占用比为：%.2f%%' % (mem_usage * 100))
+
+b = disk_stat()
+disk_usage = float(b['used']/b['capacity'])
+disk_usage_string = '硬盘占用比为：%.2f%%' % (disk_usage * 100)
+print('硬盘占用比为：%.2f%%' % (disk_usage * 100))
 
 app = Flask(__name__)
 
