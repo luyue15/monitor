@@ -8,8 +8,8 @@ import socket
 
 def memory_stat():
     mem = {}
-    # f = open("/proc/meminfo")
-    f = open("/Users/luyue/Code/Python/python_code/data/meminfo")
+    f = open("/proc/meminfo")
+    # f = open("/Users/luyue/Code/Python/python_code/data/meminfo")
     lines = f.readlines()
     f.close()
     for line in lines:
