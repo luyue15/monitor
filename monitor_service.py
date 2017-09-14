@@ -8,8 +8,8 @@ import socket
 
 def memory_stat():
     mem = {}
-    f = open("/proc/meminfo")
-    # f = open("/Users/luyue/Code/Python/python_code/data/meminfo")
+    # f = open("/proc/meminfo")
+    f = open("/Users/luyue/Code/Python/python_code/data/meminfo")
     lines = f.readlines()
     f.close()
     for line in lines:
@@ -42,8 +42,8 @@ print('硬盘占用比为：%.2f%%' % (disk_usage * 100))
 myname = socket.getfqdn(socket.gethostname())
 # 获取本机ip
 myaddr = socket.gethostbyname(myname)
-print myname
-print myaddr
+# print myname
+# print myaddr
 
 app = Flask(__name__)
 
@@ -62,6 +62,5 @@ def index():
 if __name__ == '__main__':
     # app.run(debug=True)
     app.run(
-        host=myaddr,
-        port=int("5000")
+        host="0.0.0.0",port = 5000
     )
