@@ -41,14 +41,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    a = memory_stat()
-    mem_usage = a['MemUsed'] / a['MemTotal']
-    mem_usage_string = 'Mem:%.2f%%' % (mem_usage * 100)
+    c = memory_stat()
+    mem_usage_c = c['MemUsed'] / c['MemTotal']
+    mem_usage_string_c = 'Mem:%.2f%%' % (mem_usage_c * 100)
 
-    disk = disk_stat()
-    disk_usage = disk['used'] / disk['capacity']
-    disk_usage_string = 'Disk:%.2f%%' % (disk_usage * 100)
-    Response = disk_usage_string + ' , ' + mem_usage_string
+    d = disk_stat()
+    disk_usage_d = d['used'] / d['capacity']
+    disk_usage_string_d = 'Disk:%.2f%%' % (disk_usage_d * 100)
+    Response = disk_usage_string_d + ' , ' + mem_usage_string_c
     return Response
 
 if __name__ == '__main__':
