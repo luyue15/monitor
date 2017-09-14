@@ -1,13 +1,15 @@
 #encoding:utf-8
 from __future__ import division
-from flask import Flask
+from flask import Flask, render_template, request
 import os
+import socket
 
 
 
 def memory_stat():
     mem = {}
     f = open("/proc/meminfo")
+    # f = open("/Users/luyue/Code/Python/python_code/data/meminfo")
     lines = f.readlines()
     f.close()
     for line in lines:
@@ -37,6 +39,12 @@ disk_usage = float(b['used']/b['capacity'])
 disk_usage_string = '硬盘占用比为：%.2f%%' % (disk_usage * 100)
 print('硬盘占用比为：%.2f%%' % (disk_usage * 100))
 
+myname = socket.getfqdn(socket.gethostname())
+# 获取本机ip
+myaddr = socket.gethostbyname(myname)
+# print myname
+# print myaddr
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -52,4 +60,8 @@ def index():
     return Response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(
+        host=myaddr,
+        port=int("5000")
+    )
