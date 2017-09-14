@@ -42,8 +42,8 @@ print('硬盘占用比为：%.2f%%' % (disk_usage * 100))
 myname = socket.getfqdn(socket.gethostname())
 # 获取本机ip
 myaddr = socket.gethostbyname(myname)
-# print myname
-# print myaddr
+print myname
+print myaddr
 
 app = Flask(__name__)
 
